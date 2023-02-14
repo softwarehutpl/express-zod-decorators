@@ -1,10 +1,19 @@
 {
   "name": "@softwarehutpl/express-zod-decorators",
   "version": "0.0.1",
-  "main": "index.ts",
-  "scripts": {
-    "start": "ts-node index.ts"
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
   },
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "vite build"
+  },
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "reflect-metadata": "^0.1.13"
@@ -12,6 +21,7 @@
   "devDependencies": {
     "@types/node": "^18.11.18",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "vite": "^4.1.1"
   }
 }
