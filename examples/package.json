@@ -1,0 +1,25 @@
+{
+  "name": "ExpressDecorators",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "jest"
+  },
+  "repository": "https://softwarehut.visualstudio.com/DefaultCollection/EDU.Frontend/_git/ExpressDecoratorsChallenge",
+  "author": "Pawel Siemieniuk <pawel.siemieniuk@softwarehut.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@softwarehutpl/express-zod-decorators": "git+https://github.com/softwarehutpl/express-zod-decorators.git#0.0.2",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "reflect-metadata": "^0.1.13",
+    "zod": "^3.20.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.11.18",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
