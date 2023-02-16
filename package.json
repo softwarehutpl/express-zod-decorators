@@ -1,6 +1,6 @@
 {
   "name": "@softwarehutpl/express-zod-decorators",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "module": "./dist/index.js",
