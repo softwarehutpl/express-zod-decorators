@@ -1,5 +1,6 @@
 export declare enum Method {
     get = "get",
     post = "post",
-    put = "put"
+    put = "put",
+    delete = "delete"
 }

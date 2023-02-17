@@ -46,3 +46,15 @@ describe('Put /user/update', () => {
     expect(res.body).toHaveProperty('age');
   })
 })
+
+describe('Delete /user/delete', () => {
+  it('Should return updated user', async () => {
+    const res = await request('http://localhost:3000')
+      .put('/user/update')
+      .send({ id: '1', name: 'Jon', age: '20' });
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('id');
+    expect(res.body).toHaveProperty('name');
+    expect(res.body).toHaveProperty('age');
+  })
+})

@@ -36,11 +36,11 @@ var ne;
     var h = Object.prototype.hasOwnProperty, d = typeof Symbol == "function", w = d && typeof Symbol.toPrimitive < "u" ? Symbol.toPrimitive : "@@toPrimitive", v = d && typeof Symbol.iterator < "u" ? Symbol.iterator : "@@iterator", M = typeof Object.create == "function", b = { __proto__: [] } instanceof Array, m = !M && !b, O = {
       // create an object in dictionary mode (a.k.a. "slow" mode in v8)
       create: M ? function() {
-        return L(/* @__PURE__ */ Object.create(null));
+        return B(/* @__PURE__ */ Object.create(null));
       } : b ? function() {
-        return L({ __proto__: null });
+        return B({ __proto__: null });
       } : function() {
-        return L({});
+        return B({});
       },
       has: m ? function(e, t) {
         return h.call(e, t);
@@ -52,7 +52,7 @@ var ne;
       } : function(e, t) {
         return e[t];
       }
-    }, A = Object.getPrototypeOf(Function), q = typeof process == "object" && process.env && process.env.REFLECT_METADATA_USE_MAP_POLYFILL === "true", S = !q && typeof Map == "function" && typeof Map.prototype.entries == "function" ? Map : ge(), I = !q && typeof Set == "function" && typeof Set.prototype.entries == "function" ? Set : Te(), G = !q && typeof WeakMap == "function" ? WeakMap : Oe(), k = new G();
+    }, A = Object.getPrototypeOf(Function), q = typeof process == "object" && process.env && process.env.REFLECT_METADATA_USE_MAP_POLYFILL === "true", S = !q && typeof Map == "function" && typeof Map.prototype.entries == "function" ? Map : ge(), I = !q && typeof Set == "function" && typeof Set.prototype.entries == "function" ? Set : Te(), D = !q && typeof WeakMap == "function" ? WeakMap : Oe(), k = new D();
     function E(e, t, n, r) {
       if (y(n)) {
         if (!J(e))
@@ -82,12 +82,12 @@ var ne;
       return n;
     }
     c("metadata", R);
-    function D(e, t, n, r) {
+    function F(e, t, n, r) {
       if (!p(n))
         throw new TypeError();
       return y(r) || (r = T(r)), $(e, t, n, r);
     }
-    c("defineMetadata", D);
+    c("defineMetadata", F);
     function ae(e, t, n) {
       if (!p(t))
         throw new TypeError();
@@ -97,7 +97,7 @@ var ne;
     function ie(e, t, n) {
       if (!p(t))
         throw new TypeError();
-      return y(n) || (n = T(n)), F(e, t, n);
+      return y(n) || (n = T(n)), W(e, t, n);
     }
     c("hasOwnMetadata", ie);
     function oe(e, t, n) {
@@ -180,13 +180,13 @@ var ne;
       return a;
     }
     function H(e, t, n) {
-      var r = F(e, t, n);
+      var r = W(e, t, n);
       if (r)
         return !0;
-      var a = W(t);
+      var a = L(t);
       return j(a) ? !1 : H(e, a, n);
     }
-    function F(e, t, n) {
+    function W(e, t, n) {
       var r = C(
         t,
         n,
@@ -196,10 +196,10 @@ var ne;
       return y(r) ? !1 : pe(r.has(e));
     }
     function N(e, t, n) {
-      var r = F(e, t, n);
+      var r = W(e, t, n);
       if (r)
         return z(e, t, n);
-      var a = W(t);
+      var a = L(t);
       if (!j(a))
         return N(e, a, n);
     }
@@ -223,7 +223,7 @@ var ne;
       a.set(e, t);
     }
     function Q(e, t) {
-      var n = Y(e, t), r = W(e);
+      var n = Y(e, t), r = L(e);
       if (r === null)
         return n;
       var a = Q(r, t);
@@ -414,7 +414,7 @@ var ne;
       var t = e.return;
       t && t.call(e);
     }
-    function W(e) {
+    function L(e) {
       var t = Object.getPrototypeOf(e);
       if (typeof e != "function" || e === A || t !== A)
         return t;
@@ -629,7 +629,7 @@ var ne;
         return f;
       }
     }
-    function L(e) {
+    function B(e) {
       return e.__ = void 0, delete e.__, e;
     }
   });
@@ -637,8 +637,8 @@ var ne;
 const xe = (l = "") => (c) => {
   Reflect.defineMetadata("prefix", l, c), Reflect.hasMetadata("routes", c) || Reflect.defineMetadata("routes", [], c);
 };
-var U = /* @__PURE__ */ ((l) => (l.get = "get", l.post = "post", l.put = "put", l))(U || {}), g = /* @__PURE__ */ ((l) => (l.param = "param", l.query = "query", l.req = "req", l.res = "res", l.body = "body", l))(g || {});
-const B = (l) => (c) => (h, d, w) => {
+var U = /* @__PURE__ */ ((l) => (l.get = "get", l.post = "post", l.put = "put", l.delete = "delete", l))(U || {}), g = /* @__PURE__ */ ((l) => (l.param = "param", l.query = "query", l.req = "req", l.res = "res", l.body = "body", l))(g || {});
+const G = (l) => (c) => (h, d, w) => {
   Reflect.hasMetadata("routes", h.constructor) || Reflect.defineMetadata("routes", [], h.constructor);
   const v = Reflect.getMetadata("routes", h.constructor);
   v.push({
@@ -648,14 +648,14 @@ const B = (l) => (c) => (h, d, w) => {
   }), Reflect.defineMetadata("routes", v, h.constructor);
   const M = Reflect.getMetadata(g.req, h[d]), b = Reflect.getMetadata(g.res, h[d]), m = Reflect.getMetadata(g.param, h[d]), O = Reflect.getMetadata(g.query, h[d]), A = Reflect.getMetadata(g.body, h[d]), q = w.value;
   w.value = (...S) => {
-    const [I, G] = S, k = [...S];
-    if (M && (k[M.index] = I), b && (k[b.index] = G), m) {
+    const [I, D] = S, k = [...S];
+    if (M && (k[M.index] = I), b && (k[b.index] = D), m) {
       const { key: E, index: R } = m;
       k[R] = I.params[E];
     }
     if (O) {
-      const { key: E, schema: R, index: D } = O;
-      k[D] = E ? R.parse(I.query[E]) : R.parse(I.query);
+      const { key: E, schema: R, index: F } = O;
+      k[F] = E ? R.parse(I.query[E]) : R.parse(I.query);
     }
     if (A) {
       const { schema: E, index: R } = A;
@@ -663,7 +663,7 @@ const B = (l) => (c) => (h, d, w) => {
     }
     return q.apply(void 0, k);
   };
-}, Ie = B(U.get), Se = B(U.post), je = B(U.put), V = (l) => (c) => (h, d, w) => {
+}, Ie = G(U.get), Se = G(U.post), je = G(U.put), Pe = G(U.delete), V = (l) => (c) => (h, d, w) => {
   const v = h[d], M = {
     key: c == null ? void 0 : c.key,
     schema: c == null ? void 0 : c.schema,
@@ -673,7 +673,7 @@ const B = (l) => (c) => (h, d, w) => {
 }, re = (l) => (c, h, d) => {
   const w = c[h];
   Reflect.defineMetadata(l, { index: d }, w);
-}, Pe = V(g.param), Ae = V(g.query), qe = re(g.req), Ce = re(g.res), Ue = V(g.body), Ee = ["User"], Ge = (l) => (c, h, d) => {
+}, Ae = V(g.param), qe = V(g.query), Ce = re(g.req), Ue = re(g.res), Ge = V(g.body), Ee = ["User"], De = (l) => (c, h, d) => {
   const w = d.value;
   d.value = (...v) => {
     const [, M] = v;
@@ -684,14 +684,17 @@ const B = (l) => (c) => (h, d, w) => {
 };
 export {
   Re as AuthGuard,
-  Ue as Body,
+  Ge as Body,
   xe as Controller,
+  Pe as Delete,
   Ie as Get,
-  Pe as Param,
+  U as Method,
+  Ae as Param,
+  g as Parameter,
   Se as Post,
   je as Put,
-  Ae as Query,
-  qe as Req,
-  Ce as Res,
-  Ge as RoleGuard
+  qe as Query,
+  Ce as Req,
+  Ue as Res,
+  De as RoleGuard
 };

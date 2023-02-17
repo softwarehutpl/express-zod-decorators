@@ -57,3 +57,4 @@ const httpMethodDecoratorFactory = (method: Method) => {
 export const Get = httpMethodDecoratorFactory(Method.get);
 export const Post = httpMethodDecoratorFactory(Method.post);
 export const Put = httpMethodDecoratorFactory(Method.put);
+export const Delete = httpMethodDecoratorFactory(Method.delete);

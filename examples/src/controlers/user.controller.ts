@@ -7,6 +7,7 @@ const {
   Get,
   Post,
   Put,
+  Delete,
   Param,
   Req,
   Res,
@@ -21,12 +22,17 @@ const ZodUser = z.object({
   age: z.coerce.number(),
 });
 
+const ZodDeleteUser = z.object({
+  id: z.string(),
+});
+
 const ZodQuery = z.object({
   q: z.coerce.number().optional(),
 });
 
 @Controller('/user')
 export default class UserController {
+  [key: string | symbol]: Function
 
   @AuthGuard('token')
   @Get('/')
@@ -59,6 +65,14 @@ export default class UserController {
   @Put('/update')
   public updateUser(
     @Body({ schema: ZodUser }) body: typeof ZodUser,
+    @Res res: Response
+  ) {
+    return res.send(body);
+  }
+
+  @Delete('/delete')
+  public deleteUser(
+    @Body({ schema: ZodDeleteUser }) body: typeof ZodUser,
     @Res res: Response
   ) {
     return res.send(body);
