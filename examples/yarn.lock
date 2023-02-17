@@ -27,9 +27,9 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@softwarehutpl/express-zod-decorators@git+https://github.com/softwarehutpl/express-zod-decorators.git#0.0.4":
+"@softwarehutpl/express-zod-decorators@git+https://github.com/softwarehutpl/express-zod-decorators.git#0.0.5":
   version "0.0.4"
-  resolved "git+https://github.com/softwarehutpl/express-zod-decorators.git#d78e32e92a470105ca14752992e6f4d1c5f9e57d"
+  resolved "git+https://github.com/softwarehutpl/express-zod-decorators.git#3b668eeacaf33e440682902f0b3a8ea94ae527be"
   dependencies:
     reflect-metadata "^0.1.13"
 

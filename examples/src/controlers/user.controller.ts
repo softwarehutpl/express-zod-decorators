@@ -75,6 +75,6 @@ export default class UserController {
     @Body({ schema: ZodDeleteUser }) body: typeof ZodUser,
     @Res res: Response
   ) {
-    return res.send(body);
+    return res.send(true);
   }
 }

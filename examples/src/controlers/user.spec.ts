@@ -48,13 +48,11 @@ describe('Put /user/update', () => {
 })
 
 describe('Delete /user/delete', () => {
-  it('Should return updated user', async () => {
+  it('Should return true', async () => {
     const res = await request('http://localhost:3000')
-      .put('/user/update')
-      .send({ id: '1', name: 'Jon', age: '20' });
+      .delete('/user/delete')
+      .send({ id: '1' });
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty('id');
-    expect(res.body).toHaveProperty('name');
-    expect(res.body).toHaveProperty('age');
+    expect(res.body).toEqual(true);
   })
 })
