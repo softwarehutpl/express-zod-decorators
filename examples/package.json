@@ -1,11 +1,10 @@
 {
-  "name": "ExpressDecorators",
+  "name": "examples",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
     "start": "ts-node index.ts"
   },
-  "repository": "https://softwarehut.visualstudio.com/DefaultCollection/EDU.Frontend/_git/ExpressDecoratorsChallenge",
   "author": "Pawel Siemieniuk <pawel.siemieniuk@softwarehut.com>",
   "license": "MIT",
   "dependencies": {

@@ -1,7 +1,6 @@
-import 'reflect-metadata';
 import { Request, Response } from 'express';
 import { z } from 'zod';
-const {
+import {
   Controller,
   AuthGuard,
   Get,
@@ -14,7 +13,7 @@ const {
   Query,
   Body,
   RoleGuard,
-} = require('@softwarehutpl/express-zod-decorators');
+} from '@softwarehutpl/express-zod-decorators';
 
 const ZodUser = z.object({
   id: z.string().optional(),

@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { Express, Request, Response, NextFunction } from 'express';
 import { Route } from '@softwarehutpl/express-zod-decorators/dist/types/route';
 import UserController from './user.controller';

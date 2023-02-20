@@ -1,8 +1,9 @@
 import 'reflect-metadata';
+import { z } from 'zod';
 import { Parameter } from '../types/parameter';
 
 const paramWithKeyDecoratorFactory = (parameter: Parameter) => {
-  return <T>(payload?: { key?: string, schema?: T }): ParameterDecorator => {
+  return (payload?: { key?: string, schema?: typeof z.object }): ParameterDecorator => {
     return (
       target: { [key: string]: any },
       propertyKey: string | symbol,
@@ -10,10 +11,10 @@ const paramWithKeyDecoratorFactory = (parameter: Parameter) => {
     ) => {
       const metadataTarget = target[propertyKey as string];
       const metadataValue = {
-        key: payload?.key as string,
-        schema: payload?.schema as T,
-        index: parameterIndex as number,
-      } as object;
+        key: payload?.key,
+        schema: payload?.schema,
+        index: parameterIndex,
+      };
       Reflect.defineMetadata(parameter, metadataValue, metadataTarget);
     }
   }
