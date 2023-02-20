@@ -27,11 +27,12 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@softwarehutpl/express-zod-decorators@git+https://github.com/softwarehutpl/express-zod-decorators.git#0.0.5":
-  version "0.0.4"
-  resolved "git+https://github.com/softwarehutpl/express-zod-decorators.git#3b668eeacaf33e440682902f0b3a8ea94ae527be"
+"@softwarehutpl/express-zod-decorators@git+https://github.com/softwarehutpl/express-zod-decorators.git#0.0.6":
+  version "0.0.6"
+  resolved "git+https://github.com/softwarehutpl/express-zod-decorators.git#100be7b8444ce1a88ee86bdaa4d6689253a4f636"
   dependencies:
     reflect-metadata "^0.1.13"
+    zod "^3.20.6"
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
@@ -586,7 +587,7 @@ yn@3.1.1:
   resolved "https://registry.yarnpkg.com/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
   integrity sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 
-zod@^3.20.3:
+zod@^3.20.3, zod@^3.20.6:
   version "3.20.6"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.20.6.tgz#2f2f08ff81291d47d99e86140fedb4e0db08361a"
   integrity sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==
