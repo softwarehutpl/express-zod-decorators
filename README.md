@@ -2,7 +2,7 @@ Zod decorators for ExpressJS
 
 ## Installation
 ```
-npm install git+https://github.com/softwarehutpl/express-zod-decorators.git#0.0.5 --save
+npm install @softwarehutpl/express-zod-decorators --save
 ```
 
 ## Example of usage
