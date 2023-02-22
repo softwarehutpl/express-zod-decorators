@@ -1,11 +1,11 @@
-import express, { Express, Request, Response } from 'express';
 import { defineRoutes } from './src/controlers';
 
+const express = require('express');
 const bodyParser = require('body-parser');
 
-const app: Express = express();
+const app: typeof express.Express = express();
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req: typeof express.Request, res: typeof express.Response) => {
   res.send('Express + TypeScript Server');
 });
 
