@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/softwarehutpl/express-zod-decorators/actions/workflows/node.js.yml/badge.svg)](https://github.com/softwarehutpl/express-zod-decorators/actions/workflows/node.js.yml)
+
 Zod decorators for ExpressJS
 
 ## Installation
