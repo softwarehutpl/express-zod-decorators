@@ -1,9 +1,9 @@
 import 'reflect-metadata';
-import { Router, Request, Response } from 'express';
+const express = require('express');
 import { Route } from './';
 
 export const getRouter = (payload: Array<any>) => {
-  const router = Router();
+  const router = express.Router();
   payload.forEach((Controller) => {
     const instance = new Controller();
     const prefix = Reflect.getMetadata('prefix', Controller);

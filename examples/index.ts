@@ -1,16 +1,19 @@
-import { defineRoutes } from './src/controlers';
+import { controllers } from './src/controlers';
+// const { getRouter } = require('@softwarehutpl/express-zod-decorators');
+const { getRouter } = require('simple-node-decorators');
+// const { getRouter } = require('edp');
 
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const app: typeof express.Express = express();
+const app = express();
 
 app.get('/', (req: typeof express.Request, res: typeof express.Response) => {
   res.send('Express + TypeScript Server');
 });
 
+app.use(getRouter(controllers));
 app.use(bodyParser.json());
-app.use(defineRoutes.bind(app))
 
 app.listen(3000, () => {
   console.log('️[server]: Server is running at http://localhost:3000');

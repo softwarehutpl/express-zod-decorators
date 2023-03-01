@@ -1,6 +1,6 @@
-import 'reflect-metadata';
 import { Request, Response } from 'express';
 import { z } from 'zod';
+
 const {
   Controller,
   AuthGuard,
@@ -14,7 +14,9 @@ const {
   Query,
   Body,
   RoleGuard,
-} = require('@softwarehutpl/express-zod-decorators');
+// } = require('@softwarehutpl/express-zod-decorators');
+} = require('simple-node-decorators');
+// } = require('edp');
 
 const ZodUser = z.object({
   id: z.string().optional(),
@@ -29,6 +31,7 @@ const ZodDeleteUser = z.object({
 const ZodQuery = z.object({
   q: z.coerce.number().optional(),
 });
+
 
 @Controller('/user')
 export default class UserController {
