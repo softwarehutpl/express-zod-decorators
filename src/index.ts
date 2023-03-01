@@ -6,3 +6,4 @@ export { RoleGuard } from './decorators/role-guard.decorator';
 export * from './types/method';
 export * from './types/parameter';
 export * from './types/route';
+export * from './router';
