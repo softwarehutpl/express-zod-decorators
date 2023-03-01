@@ -1,6 +1,6 @@
 {
   "name": "@softwarehutpl/express-zod-decorators",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "repository": "https://github.com/softwarehutpl/express-zod-decorators.git",
   "main": "./dist/index.js",

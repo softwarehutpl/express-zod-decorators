@@ -1,7 +1,5 @@
 import { controllers } from './src/controlers';
-// const { getRouter } = require('@softwarehutpl/express-zod-decorators');
-const { getRouter } = require('simple-node-decorators');
-// const { getRouter } = require('edp');
+const { getRouter } = require('@softwarehutpl/express-zod-decorators');
 
 const express = require('express');
 const bodyParser = require('body-parser');

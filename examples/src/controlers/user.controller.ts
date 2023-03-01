@@ -14,9 +14,7 @@ const {
   Query,
   Body,
   RoleGuard,
-// } = require('@softwarehutpl/express-zod-decorators');
-} = require('simple-node-decorators');
-// } = require('edp');
+} = require('@softwarehutpl/express-zod-decorators');
 
 const ZodUser = z.object({
   id: z.string().optional(),
