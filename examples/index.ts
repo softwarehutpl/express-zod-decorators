@@ -1,14 +1,14 @@
-import { controllers } from './src/controlers';
-const { getRouter } = require('@softwarehutpl/express-zod-decorators');
-const express = require('express');
-const bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
+import express from 'express';
+import { getRouter } from '@softwarehutpl/express-zod-decorators';
+import { controllers } from './src/controllers';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(getRouter(controllers));
 
-app.get('/', (req: typeof express.Request, res: typeof express.Response) => {
+app.get('/', (req: typeof express.request, res: typeof express.response) => {
   res.send('Express + TypeScript Server');
 });
 

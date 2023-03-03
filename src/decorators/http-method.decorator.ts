@@ -41,12 +41,12 @@ const httpMethodDecoratorFactory = (method: Method) => {
           newArgs[index] = request.params[key];
         }
         if (query) {
-          const { key, schema, index } = query;
-          newArgs[index] = key ? schema.parse(request.query[key]) : schema.parse(request.query);
+          const { key, zod, index } = query;
+          newArgs[index] = key ? zod.parse(request.query[key]) : zod.parse(request.query);
         }
         if (body) {
-          const { schema, index } = body;
-          newArgs[index] = schema.parse(request.body);
+          const { zod, index } = body;
+          newArgs[index] = zod.parse(request.body);
         }
         return original.apply(this, newArgs);
       }

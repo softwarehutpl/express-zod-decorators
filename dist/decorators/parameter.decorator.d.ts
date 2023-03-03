@@ -1,11 +1,10 @@
-import { z } from 'zod';
 export declare const Param: (payload?: {
     key?: string;
-    schema?: typeof z.object;
+    zod?: object;
 }) => ParameterDecorator;
 export declare const Query: (payload?: {
     key?: string;
-    schema?: typeof z.object;
+    zod?: object;
 }) => ParameterDecorator;
 export declare const Req: (target: {
     [key: string]: any;
@@ -15,5 +14,5 @@ export declare const Res: (target: {
 }, propertyKey: string | symbol, parameterIndex: number) => void;
 export declare const Body: (payload?: {
     key?: string;
-    schema?: typeof z.object;
+    zod?: object;
 }) => ParameterDecorator;
