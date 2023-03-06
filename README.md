@@ -104,7 +104,7 @@ export default class UserController {
 
   @Delete('/delete')
   public deleteUser(
-    @Body({ zod: ZodDeleteUser }) body: typeof ZodUser,
+    @Body({ zod: ZodDeleteUser }) body: typeof ZodDeleteUser,
     @Res res: Response
   ) {
     return res.send(true);
