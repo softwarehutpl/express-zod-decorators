@@ -15,20 +15,20 @@ import {
   RoleGuard,
 } from '@softwarehutpl/express-zod-decorators';
 
-const ZodUser = z.object({
+const ZodBook = z.object({
   id: z.string().optional(),
-  name: z.coerce.string(),
-  age: z.coerce.number(),
+  title: z.coerce.string(),
+  author: z.coerce.string(),
 });
-const ZodDeleteUser = z.object({
+const ZodDeleteBook = z.object({
   id: z.string(),
 });
 const ZodQuery = z.object({
   q: z.coerce.number().optional(),
 });
 
-@Controller('/user')
-export default class UserController {
+@Controller('/book')
+export default class BookController {
   [key: string | symbol]: Function
 
   @AuthGuard('token')
@@ -37,7 +37,7 @@ export default class UserController {
     @Res res: Response,
     @Req req: Request
   ) {
-    return res.send(`user index`);
+    return res.send(`book index`);
   }
 
   @RoleGuard({
@@ -45,7 +45,7 @@ export default class UserController {
     requiredRoles: ['Required', 'Roles'],
   })
   @Get('/:id')
-  public getUser(
+  public getBook(
     @Req req: Request,
     @Res res: Response,
     @Param({ key: 'id' }) param: string,
@@ -55,24 +55,24 @@ export default class UserController {
   }
 
   @Post('/add')
-  public createUser(
-    @Body({ zod: ZodUser }) body: typeof ZodUser,
+  public addBook(
+    @Body({ zod: ZodBook }) body: typeof ZodBook,
     @Res res: Response
   ) {
     return res.send({ id: '1', ...body });
   }
 
   @Put('/update')
-  public updateUser(
-    @Body({ zod: ZodUser }) body: typeof ZodUser,
+  public updateBook(
+    @Body({ zod: ZodBook }) body: typeof ZodBook,
     @Res res: Response
   ) {
     return res.send(body);
   }
 
   @Delete('/delete')
-  public deleteUser(
-    @Body({ zod: ZodDeleteUser }) body: typeof ZodDeleteUser,
+  public deleteBook(
+    @Body({ zod: ZodDeleteBook }) body: typeof ZodDeleteBook,
     @Res res: Response
   ) {
     return res.send(true);

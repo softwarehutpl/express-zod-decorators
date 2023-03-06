@@ -2,7 +2,7 @@ const request = require('supertest');
 
 const token = 'token';
 
-describe('Get /user', () => {
+describe('Get /book', () => {
   test('Check token', async () => {
     const res = await request('http://localhost:3000')
       .get('/user')
@@ -11,43 +11,43 @@ describe('Get /user', () => {
   });
 });
 
-describe('Get /user/:id?query', () => {
+describe('Get /book/:id?query', () => {
   const id = '1';
   const query = { q: '123' };
-  test('Get user by id and check query', async () => {
+  test('Get book by id and check query', async () => {
     const res = await request('http://localhost:3000')
-      .get(`/user/${id}`)
+      .get(`/book/${id}`)
       .query(query)
     expect(res.statusCode).toEqual(200);
     expect(res.text).toEqual(`param - ${id}; query - ${JSON.stringify({ q: 123 })}`);
   });
 });
 
-describe('Post /user/add', () => {
-  it('Should return new user', async () => {
+describe('Post /book/add', () => {
+  it('Should return new book', async () => {
     const res = await request('http://localhost:3000')
-      .post('/user/add')
-      .send({ name: 'Jon Snow', age: '20' });
+      .post('/book/add')
+      .send({ title: 'A Song of Ice and Fire', author: 'George R. R. Martin' });
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('id');
-    expect(res.body).toHaveProperty('name');
-    expect(res.body).toHaveProperty('age');
+    expect(res.body).toHaveProperty('title');
+    expect(res.body).toHaveProperty('author');
   })
 })
 
-describe('Put /user/update', () => {
-  it('Should return updated user', async () => {
+describe('Put /book/update', () => {
+  it('Should return updated book', async () => {
     const res = await request('http://localhost:3000')
-      .put('/user/update')
-      .send({ id: '1', name: 'Jon', age: '20' });
+      .put('/book/update')
+      .send({ id: '1', title: 'Fire & Blood', author: 'George R. R. Martin' });
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('id');
-    expect(res.body).toHaveProperty('name');
-    expect(res.body).toHaveProperty('age');
+    expect(res.body).toHaveProperty('title');
+    expect(res.body).toHaveProperty('author');
   })
 })
 
-describe('Delete /user/delete', () => {
+describe('Delete /book/delete', () => {
   it('Should return true', async () => {
     const res = await request('http://localhost:3000')
       .delete('/user/delete')
